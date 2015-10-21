@@ -11,6 +11,7 @@ gem 'devise'
 gem 'cancancan', '~> 1.10'
 gem 'simple_calendar', "~> 2.0"
 gem 'simple_form'
+gem 'acts-as-taggable-on', '~> 3.4'
 gem 'carrierwave',             '0.10.0'
 gem 'mini_magick',             '3.8.0'
 gem 'fog',                     '1.26.0'
