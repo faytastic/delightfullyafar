@@ -7,6 +7,8 @@ class ArticlesController < ApplicationController
 
 	def show
 		@article = Article.find(params[:id])
+		@attachment = @article.attachments.build
+		@attachments = @article.attachments.all
 	end
 
 	def new

@@ -7,3 +7,15 @@
 <%= link_to "Delete", article_path(@article), method: :delete %>
 <% end %>
 <p>Tags: <%= raw @article.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %></p>
+<% if can? :edit, @article %>
+<%= simple_form_for([@article, @article.attachments.build]) do |f| %>
+	<%= f.input :picture, as: :file %>
+	<%= f.input :remote_picture_url %>
+	<%= f.button :submit, "Create", class: "btn btn-primary" %>
+<% end %>
+<% end %>
+<% if @attachments.size>0 %>
+	<% @attachments.each do |attachment| %>
+		<%= link_to image_tag(attachment.picture_url(:thumb)), "#{attachment.picture_url}" %>
+		<% end %>
+	<% end %>

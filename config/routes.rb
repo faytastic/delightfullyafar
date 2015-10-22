@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users
-  resources :articles
+  resources :articles do
+  	resources :attachments
+  end
   
   root 'static_pages#home'
 
