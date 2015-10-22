@@ -8,5 +8,7 @@ Rails.application.routes.draw do
 
   get 'static_pages/help'
 
+  get 'tags/:tag', to: 'articles#index', as: :tag
+
 
 end

@@ -3,6 +3,7 @@
 	<%= f.input :content %>
 	<%= f.input :address %>
 	<%= f.input :public, :input_html => { :checked => true } %>
+	<%= f.input :tag_list, placeholder: 'Separate tags with comma' %>
 	<%= f.input :picture, as: :file %>
 	<%= f.input :remote_picture_url %>
 	<%= f.button :submit, "Create", class: "btn btn-primary" %>
