@@ -11,7 +11,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151021072401) do
+ActiveRecord::Schema.define(version: 20151021080722) do
+
+  create_table "articles", force: :cascade do |t|
+    t.string   "title"
+    t.text     "address"
+    t.text     "content"
+    t.string   "picture"
+    t.boolean  "public"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "articles", ["user_id"], name: "index_articles_on_user_id"
+
+  create_table "attachments", force: :cascade do |t|
+    t.string   "picture"
+    t.integer  "attachable_id"
+    t.string   "attachable_type"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
+  add_index "attachments", ["attachable_type", "attachable_id"], name: "index_attachments_on_attachable_type_and_attachable_id"
+  add_index "attachments", ["picture"], name: "index_attachments_on_picture"
 
   create_table "users", force: :cascade do |t|
     t.string   "name",                   default: "",    null: false

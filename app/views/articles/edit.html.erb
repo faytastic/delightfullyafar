@@ -1,0 +1,9 @@
+<%= simple_form_for @article, html: { multipart:true }, method: :patch do |f| %>
+	<%= f.input :title %>
+	<%= f.input :content %>
+	<%= f.input :address %>
+	<%= f.input :public, :input_html => { :checked => true } %>
+	<%= f.input :picture, as: :file %>
+	<%= f.input :remote_picture_url %>
+	<%= f.button :submit, "Edit", class: "btn btn-primary" %>
+<% end %>
